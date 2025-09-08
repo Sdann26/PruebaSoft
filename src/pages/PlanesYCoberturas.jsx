@@ -1,21 +1,20 @@
 import { useState, useEffect } from 'react';
 
 import { getPlans } from '../services/plans';
+import userStore from '../store/userStore';
+import Container from '../components/Container';
 import OwnerCard from '../components/OwnerCard';
 import PlanCard from '../components/PlanCard';
+
 import IcProtection from '../assets/Icons/IcProtection';
 import IcAddUser from '../assets/Icons/IcAddUser';
 import IcHospital from '../assets/Icons/IcHospital';
 import IcHome from '../assets/Icons/IcHome';
 
 const PlanesYCoberturas = () => {
+  const { userData } = userStore();
   const [selected, setSelected] = useState('');
   const [plans, setPlans] = useState([]);
-  const user = {
-    name: 'Rocío',
-    lastName: 'Miranda Díaz',
-    birthDay: '02-04-1990',
-  };
 
   const getAge = (dateStr) => {
     const [day, month, year] = dateStr.split('-').map(Number);
@@ -41,7 +40,7 @@ const PlanesYCoberturas = () => {
   useEffect(() => {
     getPlans()
       .then((plans) => {
-        const userAge = getAge(user.birthDay);
+        const userAge = getAge(userData.birthDay);
 
         const filteredPlans = plans.filter((plan) => plan.age >= userAge);
         setPlans(filteredPlans);
@@ -50,9 +49,16 @@ const PlanesYCoberturas = () => {
   }, []);
 
   return (
-    <>
-      <p>Rocío ¿Para quién deseas cotizar?</p>
-      <p>Selecciona la opción que se ajuste más a tus necesidades.</p>
+    <Container>
+      <h1 className="sr-only">Planes y Coberturas</h1>
+      <div style={{ marginBottom: '32px' }}>
+        <p className="main-title">
+          {userData?.name} ¿Para quién deseas cotizar?
+        </p>
+        <p className="main-description">
+          Selecciona la opción que se ajuste más a tus necesidades.
+        </p>
+      </div>
       <div className="owner-card-container" style={{ marginBottom: '20px' }}>
         <OwnerCard
           icon={IcProtection}
@@ -83,7 +89,7 @@ const PlanesYCoberturas = () => {
           ))}
         </div>
       )}
-    </>
+    </Container>
   );
 };
 

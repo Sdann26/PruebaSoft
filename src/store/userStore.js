@@ -1,9 +1,9 @@
 import { create } from 'zustand';
 
 const initUserData = {
-  name: '',
-  lastName: '',
-  birthDay: '',
+  name: 'Rocío',
+  lastName: 'Miranda Díaz',
+  birthDay: '02-04-1990',
   dni: '',
   phone: '',
   plan: {
