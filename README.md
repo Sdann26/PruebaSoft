@@ -1,12 +1,32 @@
-# React + Vite
+# PruebaSoft
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Proyecto React + Vite para cotización de seguros de salud flexible.
 
-Currently, two official plugins are available:
+## ¿Cómo iniciar?
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+1. Instala las dependencias:
+   ```bash
+   npm install
+   ```
+2. Ejecuta el proyecto:
+   ```bash
+   npm run dev
+   ```
 
-## Expanding the ESLint configuration
+## Estructura principal
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- `src/` Carpeta principal del código fuente.
+- `components/` Componentes reutilizables.
+- `pages/` Vistas principales del sistema.
+- `services/` Lógica de negocio y peticiones.
+- `styles/` Archivos SCSS globales y variables.
+
+### Puntos de mejora
+
+- Lógica para mostrar todos los planes al elegir la opción para alguien más.
+- Agregar loaders (p.e. Skeletons).
+- Configurar rutas absolutas
+
+### Falto
+
+- Stepper en versión mobile
