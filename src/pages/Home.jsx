@@ -4,9 +4,10 @@ import * as Yup from 'yup';
 
 import { getUser } from '../services/user';
 import useUserStore from '../store/useUserStore';
-import Header from '../Layout/Header';
 import ImageMobile from '../assets/mobileImage.png';
 import ImageDesktop from '../assets/desktopImage.png';
+import Header from '../Layout/Header';
+import Footer from '../Layout/Footer';
 import Divider from '../components/Divider';
 import './Home.scss';
 
@@ -144,6 +145,7 @@ const Home = () => {
           </div>
         </div>
       </div>
+      <Footer />
     </div>
   );
 };

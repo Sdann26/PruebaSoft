@@ -1,7 +1,7 @@
 import './Divider.scss';
 
-const Divider = ({ className }) => {
-  return <hr className={`divider ${className}`} />;
+const Divider = ({ className, style }) => {
+  return <hr className={`divider ${className}`} style={style} />;
 };
 
 export default Divider;
