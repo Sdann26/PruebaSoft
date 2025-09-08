@@ -3,9 +3,60 @@
 $max-width-form: 360px;
 
 .home {
+  position: relative;
   display: flex;
   flex-direction: column;
   min-height: 100vh; 
+
+  &::after {
+    content: '';
+    position: fixed;
+    left: 0;
+    bottom: 60;
+    width: 432px;
+    height: 768px;
+    background: url('../assets/blur-asset-purple-dk.svg') no-repeat left bottom;
+    background-size: contain;
+    z-index: -1;
+    pointer-events: none;
+  }
+
+  &::before {
+    content: '';
+    position: fixed;
+    right: 0;
+    top: 0;
+    width: 432px;
+    height: 768px;
+    background: url('../assets/blur-asset-turquese-dk.svg') no-repeat left bottom;
+    background-size: contain;
+    z-index: -1;
+    pointer-events: none;
+  }
+
+  @media screen and (max-width: variables.$breakpoint-desktop) {
+    &::after {
+      content: '';
+      position: fixed;
+      left: 0;
+      bottom: 160px;
+      width: 256px;
+      height: 304px;
+      background: url('../assets/blur-asset-purple-mb.svg') no-repeat left bottom;
+      background-size: contain;
+    }
+
+    &::before {
+      content: '';
+      position: fixed;
+      right: 0;
+      top: 0;
+      width: 352px;
+      height: 304px;
+      background: url('../assets/blur-asset-turquese-mb.svg') no-repeat right top;
+      background-size: contain;
+    }
+  }
 
   &__container{
     display: flex;
