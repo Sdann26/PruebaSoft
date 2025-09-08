@@ -5,8 +5,27 @@ $max-width-form: 360px;
 .home {
   display: flex;
   flex-direction: column;
-  gap: 16px;
   padding: 0 24px;
+
+  &__container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+    margin-top: 24px;
+
+    .desktop-image{
+      display: none;
+    }
+
+    @media screen and (min-width: variables.$breakpoint-desktop) {
+      .desktop-image{
+        display: block;
+        max-width: 480px;
+        border-radius: 8px;
+      }
+    } 
+  }
 
   .main-title{
     margin-top: 8px;
@@ -35,6 +54,12 @@ $max-width-form: 360px;
     .mobile-image{
       border-radius: 8px;
     }
+
+    @media screen and (min-width: variables.$breakpoint-desktop) {
+      .mobile-image{
+        display: none;
+      }
+    } 
   }
 
   &__content {
@@ -47,6 +72,7 @@ $max-width-form: 360px;
     font-size: 14px;
     line-height: 20px;
     letter-spacing: 0.2px;
+    margin-bottom: 16px;
   }
 
   &__divider {
@@ -107,6 +133,10 @@ $max-width-form: 360px;
   .home {
     &__divider {
       display: none;
+    }
+
+    .main-title {
+      text-align: left;
     }
   }
 }
