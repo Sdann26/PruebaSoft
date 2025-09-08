@@ -2,6 +2,7 @@ import useUserStore from '../store/useUserStore';
 import GlFamily from '../assets/Icons/GlFamily';
 import Container from '../components/Container';
 import OnBack from '../components/OnBack';
+import Divider from '../components/Divider';
 import './Resumen.scss';
 
 const Resumen = () => {
@@ -22,7 +23,7 @@ const Resumen = () => {
             <span>{fullName}</span>
           </div>
         </div>
-        <hr />
+        <Divider />
         <div className="resumen-card__section">
           <span>Responsable de pago</span>
           <span>{`DNI: ${userData?.dni}`}</span>

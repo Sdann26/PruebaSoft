@@ -1,0 +1,108 @@
+@use '../styles/variables.scss';
+
+$max-width-form: 360px;
+
+.home {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 0 24px;
+
+  .main-title{
+    margin-top: 8px;
+  }
+
+  &__tag{
+    height: 20px;
+    padding: 2px 8px;
+    border-radius: 4px;
+    font-weight: 700;
+    font-size: 12px;
+    line-height: 16px;
+    letter-spacing: 0.4px;
+    vertical-align: middle;
+    background: linear-gradient(86.01deg, #00F4E2 0%, #00FF7F 100%);
+  }
+
+  &__banner{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+    max-width: $max-width-form;
+    margin: auto;
+
+    .mobile-image{
+      border-radius: 8px;
+    }
+  }
+
+  &__content {
+    max-width: $max-width-form;
+    margin: auto;
+  }
+
+  &__description {
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 20px;
+    letter-spacing: 0.2px;
+  }
+
+  &__divider {
+    max-width: $max-width-form;
+  }
+
+  &__form {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  &__form-checkbox {
+    accent-color: variables.$primary-color;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+
+    input[type="checkbox"] {
+      width: 20px;
+      aspect-ratio: 1;
+    }
+  }
+
+  a {
+    font-weight: 600;
+    font-size: 12px;
+    line-height: 20px;
+    letter-spacing: 0.1px;
+    text-decoration: underline;
+    text-decoration-style: solid;
+    color: variables.$primary-color;
+  }
+
+  &__form-button {
+    all: unset;
+    box-sizing: border-box;
+    display: inline-block;
+    cursor: pointer;
+    padding: 20px 40px;
+    margin-top: 24px;
+    border-radius: 40px;
+    color: #FFF;
+    background-color: variables.$primary-color;
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 24px;
+    letter-spacing: 0.4px;
+    text-align: center;
+  }
+}
+
+@media screen and (min-width: variables.$breakpoint-desktop) {
+  .home {
+    &__divider {
+      display: none;
+    }
+  }
+}
