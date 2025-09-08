@@ -1,9 +1,9 @@
-import userStore from '../store/userStore';
+import useUserStore from '../store/useUserStore';
 import { useNavigate } from 'react-router-dom';
 import './PlanCard.scss';
 
 const PlanCard = ({ name, price, description, icon: Icon, owner = '' }) => {
-  const { setPlan } = userStore();
+  const { setPlan } = useUserStore();
   const navigate = useNavigate();
   const oldPrice = price;
   const newPrice =

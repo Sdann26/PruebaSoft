@@ -12,7 +12,7 @@ const initUserData = {
   },
 };
 
-const userStore = create((set) => ({
+const useUserStore = create((set) => ({
   userData: initUserData,
   setPlan: (plan) =>
     set((state) => ({
@@ -20,4 +20,4 @@ const userStore = create((set) => ({
     })),
 }));
 
-export default userStore;
+export default useUserStore;

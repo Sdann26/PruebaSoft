@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 
 import { getPlans } from '../services/plans';
-import userStore from '../store/userStore';
+import useUserStore from '../store/useUserStore';
 import Container from '../components/Container';
 import OwnerCard from '../components/OwnerCard';
 import PlanCard from '../components/PlanCard';
@@ -10,9 +10,10 @@ import IcProtection from '../assets/Icons/IcProtection';
 import IcAddUser from '../assets/Icons/IcAddUser';
 import IcHospital from '../assets/Icons/IcHospital';
 import IcHome from '../assets/Icons/IcHome';
+import OnBack from '../components/OnBack';
 
 const PlanesYCoberturas = () => {
-  const { userData } = userStore();
+  const { userData } = useUserStore();
   const [selected, setSelected] = useState('');
   const [plans, setPlans] = useState([]);
 
@@ -50,6 +51,7 @@ const PlanesYCoberturas = () => {
 
   return (
     <Container>
+      <OnBack to="/">Volver</OnBack>
       <h1 className="sr-only">Planes y Coberturas</h1>
       <div style={{ marginBottom: '32px' }}>
         <p className="main-title">
