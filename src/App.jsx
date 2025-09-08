@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import './index.scss';
 
+import { getPlans } from './services/plans';
 import OwnerCard from './components/OwnerCard';
 import PlanCard from './components/PlanCard';
 import IcProtection from './assets/Icons/IcProtection';
@@ -39,10 +40,8 @@ const App = () => {
   };
 
   useEffect(() => {
-    fetch(`${import.meta.env.VITE_API_URL}plans.json`)
-      .then((res) => res.json())
-      .then((data) => {
-        const plans = data.list;
+    getPlans()
+      .then((plans) => {
         const userAge = getAge(user.birthDay);
 
         const filteredPlans = plans.filter((plan) => plan.age >= userAge);
