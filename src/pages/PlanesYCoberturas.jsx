@@ -1,15 +1,14 @@
 import { useState, useEffect } from 'react';
 
-import { getPlans } from './services/plans';
-import OwnerCard from './components/OwnerCard';
-import PlanCard from './components/PlanCard';
-import IcProtection from './assets/Icons/IcProtection';
-import IcAddUser from './assets/Icons/IcAddUser';
-import IcHospital from './assets/Icons/IcHospital';
-import IcHome from './assets/Icons/IcHome';
-import Stepper from './components/Stepper';
+import { getPlans } from '../services/plans';
+import OwnerCard from '../components/OwnerCard';
+import PlanCard from '../components/PlanCard';
+import IcProtection from '../assets/Icons/IcProtection';
+import IcAddUser from '../assets/Icons/IcAddUser';
+import IcHospital from '../assets/Icons/IcHospital';
+import IcHome from '../assets/Icons/IcHome';
 
-const App = () => {
+const PlanesYCoberturas = () => {
   const [selected, setSelected] = useState('');
   const [plans, setPlans] = useState([]);
   const user = {
@@ -51,8 +50,7 @@ const App = () => {
   }, []);
 
   return (
-    <main>
-      <Stepper currentStep={0} steps={['Planes y coberturas', 'Resumen']} />
+    <>
       <p>Rocío ¿Para quién deseas cotizar?</p>
       <p>Selecciona la opción que se ajuste más a tus necesidades.</p>
       <div className="owner-card-container" style={{ marginBottom: '20px' }}>
@@ -85,8 +83,8 @@ const App = () => {
           ))}
         </div>
       )}
-    </main>
+    </>
   );
 };
 
-export default App;
+export default PlanesYCoberturas;
