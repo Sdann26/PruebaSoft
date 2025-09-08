@@ -50,17 +50,17 @@ ul {
     letter-spacing: -0.6px;
     text-align: center;
 
-      &--center {
-        text-align: center;
-      }
+    &--center {
+      text-align: center;
+    }
 
-      &--left {
-        text-align: left;
-      }
+    &--left {
+      text-align: left;
+    }
 
-      &--max-width-none {
-        max-width: none;
-      }
+    &--max-width-none {
+      max-width: none;
+    }
   }
 
   .main-description {

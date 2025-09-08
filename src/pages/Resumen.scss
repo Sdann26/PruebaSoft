@@ -1,6 +1,6 @@
 @use '../styles/variables.scss';
 
-.resumen-card{
+.resumen-card {
   display: flex;
   flex-direction: column;
   padding: 24px 32px;
@@ -18,7 +18,7 @@
     text-transform: uppercase;
   }
 
-  &__user{
+  &__user {
     display: flex;
     gap: 12px;
     margin-top: 8px;
@@ -38,8 +38,7 @@
     letter-spacing: 0.2px;
     vertical-align: middle;
 
-
-    &> span:nth-child(1) {
+    & > span:nth-child(1) {
       font-weight: 700;
       font-style: Bold;
     }
@@ -47,7 +46,7 @@
 }
 
 @media screen and (min-width: variables.$breakpoint-desktop) {
-  .resumen-card{
+  .resumen-card {
     margin-top: 48px;
   }
 }
