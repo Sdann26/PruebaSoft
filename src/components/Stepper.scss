@@ -1,6 +1,8 @@
+@use '../styles/variables.scss';
+
 .stepper {
   box-sizing: border-box;
-  display: flex;
+  display: none;
   justify-content: center;
   align-items: baseline;
   min-height: 56px;
@@ -48,5 +50,11 @@
     letter-spacing: 8px;
     margin: 0 16px;
     color: #4f4fff;
+  }
+}
+
+@media screen and (min-width: variables.$breakpoint-desktop) {
+  .stepper {
+    display: flex;
   }
 }
