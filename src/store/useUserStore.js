@@ -18,6 +18,10 @@ const useUserStore = create((set) => ({
     set((state) => ({
       userData: { ...state.userData, plan },
     })),
+  setUserData: (data) =>
+    set((state) => ({
+      userData: { ...state.userData, ...data },
+    })),
 }));
 
 export default useUserStore;

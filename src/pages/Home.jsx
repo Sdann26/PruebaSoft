@@ -1,11 +1,18 @@
+import { useNavigate } from 'react-router-dom';
+import { Formik, Form, Field, ErrorMessage } from 'formik';
+import * as Yup from 'yup';
+
+import { getUser } from '../services/user';
+import useUserStore from '../store/useUserStore';
 import Header from '../Layout/Header';
 import ImageMobile from '../assets/mobileImage.png';
 import Divider from '../components/Divider';
-import { Formik, Form, Field, ErrorMessage } from 'formik';
-import * as Yup from 'yup';
 import './Home.scss';
 
 const Home = () => {
+  const navigate = useNavigate();
+  const { setUserData } = useUserStore();
+
   return (
     <div className="home">
       <Header />
@@ -26,7 +33,7 @@ const Home = () => {
         <Formik
           initialValues={{
             dni: '',
-            celular: '',
+            phone: '',
             terms: false,
             terms2: false,
           }}
@@ -34,7 +41,7 @@ const Home = () => {
             dni: Yup.string()
               .required('El DNI es obligatorio')
               .matches(/^\d{8}$/, 'Debe tener 8 dígitos'),
-            celular: Yup.string()
+            phone: Yup.string()
               .required('El celular es obligatorio')
               .matches(/^\d{9}$/, 'Debe tener 9 dígitos'),
             terms: Yup.boolean().oneOf(
@@ -46,12 +53,19 @@ const Home = () => {
               'Debes aceptar la Política de Comunicaciones comerciales'
             ),
           })}
-          onSubmit={(values) => {
-            // Aquí puedes continuar el flujo
-            alert('Formulario válido. Continuando...');
+          onSubmit={async (values, { setTouched, validateForm }) => {
+            const errors = await validateForm();
+            if (Object.keys(errors).length > 0) {
+              setTouched({ dni: true, phone: true, terms: true, terms2: true });
+              return;
+            }
+            const { dni, phone } = values;
+            const user = await getUser();
+            setUserData({ dni, phone, ...user });
+            navigate('/planes-y-coberturas');
           }}
         >
-          {({ isValid, dirty }) => (
+          {() => (
             <Form className="home__form">
               <div className="home__form-group">
                 <label htmlFor="dni">DNI</label>
@@ -70,17 +84,17 @@ const Home = () => {
                 />
               </div>
               <div className="home__form-group">
-                <label htmlFor="celular">Celular</label>
+                <label htmlFor="phone">Celular</label>
                 <Field
                   type="tel"
-                  id="celular"
-                  name="celular"
+                  id="phone"
+                  name="phone"
                   maxLength={9}
                   placeholder="Ingresa tu celular"
                   className="home__form-input"
                 />
                 <ErrorMessage
-                  name="celular"
+                  name="phone"
                   component="div"
                   className="home__form-error"
                 />
@@ -106,11 +120,7 @@ const Home = () => {
                 className="home__form-error"
               />
               <a href="#">Aplican Términos y Condiciones</a>
-              <button
-                className="home__form-button"
-                type="submit"
-                disabled={!(isValid && dirty)}
-              >
+              <button className="home__form-button" type="submit">
                 Cotiza aquí
               </button>
             </Form>
