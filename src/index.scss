@@ -1,7 +1,7 @@
 @use './styles/variables.scss';
 
 body {
-  font-family: "Lato", sans-serif;
+  font-family: 'Lato', sans-serif;
   color: variables.$primary-color;
   font-weight: 400;
   font-size: 12px;
@@ -9,7 +9,9 @@ body {
   letter-spacing: 0.2px;
 }
 
-body, p, ul {
+body,
+p,
+ul {
   margin: 0;
 }
 

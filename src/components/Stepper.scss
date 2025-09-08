@@ -5,17 +5,17 @@
   align-items: baseline;
   min-height: 56px;
   padding: 16px;
-  background-color: #EDEFFC;
+  background-color: #edeffc;
 
   &__step {
     display: flex;
     align-items: center;
     gap: 16px;
 
-    &.stepper__step--active{
+    &.stepper__step--active {
       .step-number {
-        color: #FFF;
-        background-color: #4F4FFF;
+        color: #fff;
+        background-color: #4f4fff;
       }
 
       .step-label {
@@ -28,9 +28,9 @@
       place-items: center;
       width: 24px;
       aspect-ratio: 1;
-      color: #7981B2;
+      color: #7981b2;
       border-radius: 50%;
-      border: 1px solid #7981B2;
+      border: 1px solid #7981b2;
     }
 
     .step-label {
@@ -47,6 +47,6 @@
     font-size: 20px;
     letter-spacing: 8px;
     margin: 0 16px;
-    color: #4F4FFF;
+    color: #4f4fff;
   }
 }

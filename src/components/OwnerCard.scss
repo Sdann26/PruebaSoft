@@ -11,7 +11,7 @@
   padding-left: 24px;
   border-radius: 24px;
   transition: border-color 0.3s;
-  box-shadow: 0px 1px 32px 0px #AEACF359;
+  box-shadow: 0px 1px 32px 0px #aeacf359;
   max-width: 400px;
 
   &.owner-card--selected {
@@ -24,16 +24,18 @@
     aspect-ratio: 1;
     appearance: none;
     background-color: #fff;
-    border: 1px solid #A9AFD9;
+    border: 1px solid #a9afd9;
     border-radius: 50%;
     display: inline-block;
     position: relative;
-    transition: border-color 0.3s, box-shadow 0.3s;
+    transition:
+      border-color 0.3s,
+      box-shadow 0.3s;
     cursor: pointer;
 
     &:checked {
-      background-color: #389E0D;
-      border-color: #389E0D;
+      background-color: #389e0d;
+      border-color: #389e0d;
     }
 
     &:checked::after {
@@ -53,7 +55,7 @@
   &__body {
     display: flex;
     flex-direction: column;
-    gap: 8px
+    gap: 8px;
   }
 
   &__header {
