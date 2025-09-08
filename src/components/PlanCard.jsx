@@ -1,9 +1,21 @@
+import userStore from '../store/userStore';
+import { useNavigate } from 'react-router-dom';
 import './PlanCard.scss';
 
 const PlanCard = ({ name, price, description, icon: Icon, owner = '' }) => {
+  const { setPlan } = userStore();
+  const navigate = useNavigate();
   const oldPrice = price;
   const newPrice =
     owner === 'Para alguien más' ? (price * 0.95).toFixed(2) : price;
+
+  const handleSelectPlan = () => {
+    setPlan({ name, price: newPrice });
+    alert(
+      `Has seleccionado el plan: ${name} con un costo de $${newPrice} al mes.`
+    );
+    navigate('/resumen');
+  };
 
   return (
     <div className="plan-card">
@@ -29,7 +41,9 @@ const PlanCard = ({ name, price, description, icon: Icon, owner = '' }) => {
           <li key={index}>{item}</li>
         ))}
       </ul>
-      <button className="plan-card__button">Seleccionar Plan</button>
+      <button className="plan-card__button" onClick={handleSelectPlan}>
+        Seleccionar Plan
+      </button>
     </div>
   );
 };
