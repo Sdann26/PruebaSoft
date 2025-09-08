@@ -1,35 +1,34 @@
 import { useState } from 'react';
-import reactLogo from './assets/react.svg';
-import viteLogo from '/vite.svg';
-import './App.css';
+import './index.scss';
+import OwnerCard from './components/OwnerCard';
+import IcProtection from './assets/Icons/IcProtection';
+import IcAddUser from './assets/Icons/IcAddUser';
 
-function App() {
-  const [count, setCount] = useState(0);
+const App = () => {
+  const [selected, setSelected] = useState('');
 
   return (
     <>
-      <div>
-        <a href="https://vite.dev" target="_blank" rel="noreferrer">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank" rel="noreferrer">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+      <p>Rocío ¿Para quién deseas cotizar?</p>
+      <p>Selecciona la opción que se ajuste más a tus necesidades.</p>
+      <div className="owner-card-container">
+        <OwnerCard
+          icon={IcProtection}
+          title="Para mí"
+          description="Cotiza tu seguro de salud y agrega familiares si así lo deseas."
+          selected={selected === 'Para mí'}
+          onSelect={() => setSelected('Para mí')}
+        />
+        <OwnerCard
+          icon={IcAddUser}
+          title="Para alguien más"
+          description="Realiza una cotización para uno de tus familiares o cualquier persona."
+          selected={selected === 'Para alguien más'}
+          onSelect={() => setSelected('Para alguien más')}
+        />
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
     </>
   );
-}
+};
 
 export default App;

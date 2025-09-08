@@ -1,0 +1,23 @@
+@use './styles/variables.scss';
+
+body {
+  font-family: Arial, sans-serif;
+  color: variables.$primary-color;
+}
+
+p {
+  margin: 0;
+}
+
+.owner-card-container {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 24px;
+}
+
+@media (min-width: 1024px) {
+  .owner-card-container {
+    gap: 32px;
+  }
+}
